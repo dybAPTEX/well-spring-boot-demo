@@ -17,5 +17,5 @@ public interface UserMapper {
      * @param uuid 用户唯一标识
      * @return 用户实体
      */
-    User getUserByUuid(@Param("query") String uuid);
+    User getUserByUuid(@Param("uuid") String uuid);
 }
