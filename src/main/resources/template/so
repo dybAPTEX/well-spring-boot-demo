@@ -1,0 +1,21 @@
+package ${PackageName};
+
+import com.best.capital.pay.model.base.AbstractSo;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import java.util.Date;
+
+/**
+ * 系统生成So
+ * @author admin
+ * @date ${Date}
+ */
+@EqualsAndHashCode(callSuper = true)
+@Data
+public class ${SimpleName}So extends AbstractSo {
+
+    private static final long serialVersionUID = 1L;
+
+%{columnStr}
+
+}

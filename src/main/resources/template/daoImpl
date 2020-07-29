@@ -1,0 +1,46 @@
+package ${PackageName};
+
+import com.best.capital.pay.dao.base.BaseDaoImpl;
+import com.best.capital.pay.dao.base.Mapper;
+import ${ModelClassName};
+import ${ModelHistoryClassName};
+import ${DaoMapperClassName};
+import ${DaoHistoryMapperClassName};
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+${AdditionDaoImplImport}
+
+/**
+ * 系统生成Dao实现类
+ * @author admin
+ * @date ${Date}
+ */
+@Repository
+public class ${SimpleName}DaoImpl extends BaseDaoImpl<${SimpleName}, ${HistorySimpleName}> implements ${SimpleName}Dao {
+
+    private static final Boolean RECORD_HISTORY = true;
+    @Autowired
+    private ${SimpleName}Mapper mapper;
+    @Autowired
+    private ${HistorySimpleName}Mapper ${LowerCaseHistorySimpleName}Mapper;
+
+    @Override
+    protected Mapper<${SimpleName}> getMapper() {
+        return mapper;
+    }
+
+    @Override
+    protected Mapper<${HistorySimpleName}> getHistoryMapper() {
+        return ${LowerCaseHistorySimpleName}Mapper;
+    }
+
+    @Override
+    protected Boolean getRecordHistory() {
+        return RECORD_HISTORY;
+    }
+
+${AdditionDaoImpl}
+
+${Business}
+
+}

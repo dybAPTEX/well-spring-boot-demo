@@ -1,0 +1,123 @@
+package ${PackageName};
+
+import ${DaoClassName};
+import ${ModelClassName};
+import ${SoClassName};
+import ${VoClassName};
+import com.best.capital.pay.model.base.PageList;
+import com.best.capital.pay.service.base.AbstractTransactionalService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.best.capital.pay.model.tool.check.CheckEmptyHelper;
+import java.util.List;
+${AdditionServiceImplImport}
+
+/**
+ * 系统生成Service实现类
+ * @author admin
+ * @date ${Date}
+ */
+@Service
+public class ${SimpleName}ServiceImpl extends AbstractTransactionalService implements ${SimpleName}Service {
+
+    @Autowired
+    private ${SimpleName}Dao ${LowerCaseSimpleName}Dao;
+
+    /**
+     * 新增
+     *
+     * @param ${LowerCaseSimpleName} 新增对象
+     * @return 新增对象的id
+     */
+    @Override
+    public Long create(${SimpleName}Vo ${LowerCaseSimpleName}) {
+        checkBeforeCreate(${LowerCaseSimpleName});
+        ${SimpleName} ${LowerCaseSimpleName}Bo = dozer.convert(${LowerCaseSimpleName}, ${SimpleName}.class);
+        return ${LowerCaseSimpleName}Dao.insert(${LowerCaseSimpleName}Bo);
+    }
+
+    private void checkBeforeCreate(${SimpleName}Vo ${LowerCaseSimpleName}) {
+        checkRequired(${LowerCaseSimpleName});
+        checkDuplicate4Create(${LowerCaseSimpleName});
+    }
+
+
+    /**
+     * 删除
+     *
+     * @param id 删除对象的id
+     */
+    @Override
+    public void delete(Long id) {
+        ${LowerCaseSimpleName}Dao.delete(id);
+    }
+
+    /**
+     * 修改
+     *
+     * @param ${LowerCaseSimpleName} 修改对象
+     */
+    @Override
+    public void update(${SimpleName}Vo ${LowerCaseSimpleName}) {
+        checkBeforeUpdate(${LowerCaseSimpleName});
+        ${SimpleName} ${LowerCaseSimpleName}Bo = dozer.convert(${LowerCaseSimpleName}, ${SimpleName}.class);
+        ${LowerCaseSimpleName}Dao.update(${LowerCaseSimpleName}Bo);
+    }
+
+    private void checkBeforeUpdate(${SimpleName}Vo ${LowerCaseSimpleName}) {
+        checkRequired(${LowerCaseSimpleName});
+        checkDuplicate4Update(${LowerCaseSimpleName});
+    }
+
+    /**
+     * 单个查询
+     *
+     * @param id 查询对象id
+     * @return 查询结果
+     */
+    @Override
+    public ${SimpleName}Vo find(Long id) {
+        return ${LowerCaseSimpleName}Dao.findVo(id);
+    }
+
+    /**
+     * 按条件查询
+     *
+     * @param ${LowerCaseSimpleName}So 查询条件
+     * @return 查询结果
+     */
+    @Override
+    public PageList<${SimpleName}Vo> listPagination(${SimpleName}So ${LowerCaseSimpleName}So) {
+        List<${SimpleName}Vo> list = ${LowerCaseSimpleName}Dao.listPaginationVoBySo(${LowerCaseSimpleName}So);
+        int count = ${LowerCaseSimpleName}Dao.countBySo(${LowerCaseSimpleName}So);
+        return new PageList<>(list, count);
+    }
+
+    /**
+     * 检查必填字段
+     */
+    private void checkRequired(${SimpleName}Vo ${LowerCaseSimpleName}) {
+${RequireDetail}
+    }
+
+    /**
+     * 检查字段唯一性（创建）
+     */
+    private void checkDuplicate4Create(${SimpleName}Vo ${LowerCaseSimpleName}) {
+${CreateDuplicateCheck}
+    }
+
+${CreateDuplicateCheckDetail}
+
+    /**
+     * 检查字段唯一性（更新）
+     */
+    private void checkDuplicate4Update(${SimpleName}Vo ${LowerCaseSimpleName}) {
+${UpdateDuplicateCheck}
+    }
+
+${UpdateDuplicateCheckDetail}
+
+${Business}
+
+}

@@ -1,0 +1,25 @@
+package ${PackageName};
+
+import ${DaoClassName};
+import ${ServiceHelperClassName};
+import com.best.capital.pay.service.base.AbstractTransactionalService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * 系统生成AdditionalServiceImpl
+ * @author admin
+ * @date ${Date}
+ */
+@Service
+public class ${SimpleName}AdditionalServiceImpl extends AbstractTransactionalService implements ${SimpleName}AdditionalService {
+
+    @Autowired
+    private ${SimpleName}Dao ${LowerCaseSimpleName}Dao;
+    @Autowired
+    private ${SimpleName}ServiceHelper ${LowerCaseSimpleName}ServiceHelper;
+
+${Business}
+
+}

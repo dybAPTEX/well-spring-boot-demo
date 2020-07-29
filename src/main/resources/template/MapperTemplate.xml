@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${modelpackge}.${modelname}Mapper">
+
+    <!-- resultMap begin -->
+    <resultMap type="${modelClassName}" id="${modelname}ResultMap">
+        ${resultMap}
+    </resultMap>
+
+    <resultMap type="${voClassName}" id="${modelname}VoResultMap">
+        ${resultMap}
+    </resultMap>
+    <!-- resultMap end -->
+
+    <!-- CRUD begin -->
+    <insert id="insert">
+        ${insert}
+    </insert>
+
+    <insert id="batchInsert">
+        ${batchInsert}
+    </insert>
+
+    <update id="update">
+        ${update}
+        <include refid="updateSetSql"/>
+        where id=#{id} and lock_version=#{lockVersion}
+    </update>
+
+    <sql id="updateSetSql">
+        <set>
+            ${updateSetSql}
+        </set>
+    </sql>
+
+    <delete id="delete">
+        delete from ${tablename} where id = #{id}
+    </delete>
+
+    <delete id="deleteByIdList">
+        delete from ${tablename} t where t.id in
+        <foreach collection="list" index="dex" item="item" open="("
+                 close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="findBo" resultMap="${modelname}ResultMap">
+        select * from ${tablename} where id
+        = #{id}
+    </select>
+
+    <select id="findVo" resultMap="${modelname}VoResultMap">
+        select * from ${tablename} where
+        id = #{id}
+    </select>
+
+    <select id="listBoBySo" resultMap="${modelname}ResultMap">
+        select t.* from ${tablename} t
+        <include refid="soSqlFilter"/>
+        order by id desc
+    </select>
+
+    <select id="listIdBySo" resultType="long">
+        select t.id from ${tablename} t
+        <include refid="soSqlFilter"/>
+    </select>
+
+    <select id="listVoBySo" resultMap="${modelname}VoResultMap">
+        select t.* from ${tablename} t
+        <include refid="soSqlFilter"/>
+        order by id desc
+    </select>
+
+    <select id="countBySo" resultType="int">
+        select count(1) from ${tablename} t
+        <include refid="soSqlFilter"/>
+    </select>
+
+    <select id="listVoByIdList" resultMap="${modelname}VoResultMap">
+        select * from ${tablename} t where t.id in
+        <foreach collection="list" index="dex" item="item" open="("
+                 close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="listBoByIdList" resultMap="${modelname}ResultMap">
+        select * from ${tablename} t where t.id in
+        <foreach collection="list" index="dex" item="item" open="("
+                 close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <sql id="soSqlFilter">
+        <where>
+            <include refid="soSqlFilterRef"/>
+            ${where}
+        </where>
+    </sql>
+    <!-- CRUD end -->
+
+    <!-- business begin -->${business}<!-- business end -->
+</mapper>

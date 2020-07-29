@@ -1,0 +1,84 @@
+import React, { Component } from "react";
+import { EditableTable } from "components";
+import { EnumConstant } from "utils";
+
+class AccountTab extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  componentWillMount() {
+  }
+
+  beAffectFunc = (data, affectVal) => {
+    let dataFilter = data.filter(d => {
+      return d.type === affectVal;
+    });
+    return dataFilter;
+  };
+
+  renderColumns = () => {
+    const { disabled } = this.props;
+    return [
+      {
+        dataIndex: "relationship",
+        title: "demo1",
+        width: "10%",
+        componentType: "SearchSelect",
+        component: {
+          url: "/rest/subject/listPagination",
+          displayKey: "name",
+          disabled: disabled
+        }
+      },
+      {
+        dataIndex: "partBId",
+        title: "demo2",
+        width: "10%",
+        componentType: "BestSelect",
+        component: {
+          type: "static",
+          staticOpts: EnumConstant.bankType,
+          disabled: disabled
+        }
+      },
+      {
+        dataIndex: "subdistrict",
+        title: "demo3",
+        width: "20%",
+        componentType: "Input",
+        component: { disabled: disabled }
+      },
+      {
+        title: "操作",
+        dataIndex: "id",
+        width: "5%",
+        componentType: disabled ? "" : "Icon",
+        component: {
+          className: "dynamic-delete-button",
+          type: "minus-circle-o"
+        }
+      }
+    ];
+  };
+  render() {
+    const {
+        ${newlineListName},
+        disabled,
+        isNew
+    } = this.props;
+    return (
+      <div>
+        <EditableTable
+          ref={v => (this.editForm = v)}
+          className="not-full"
+          columns={this.renderColumns()}
+          dataSource={${newlineListName} || []}
+          disabled={disabled}
+          noRender={isNew}
+        />
+      </div>
+    );
+  }
+}
+export default AccountTab;

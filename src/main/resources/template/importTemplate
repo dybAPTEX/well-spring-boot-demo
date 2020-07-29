@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template version="1.0" type="singleSheet">
+    <sheet name="Sheet1"  nameCN="Sheet1" bean="${VoClassName}" isMain="true">
+        <meta>
+%{columnStr}
+        </meta>
+        <header>
+        	<row />
+        </header>
+    </sheet>
+</template>

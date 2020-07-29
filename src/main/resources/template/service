@@ -1,0 +1,50 @@
+package ${PackageName};
+
+import com.best.capital.pay.model.base.PageList;
+import ${SoClassName};
+import ${VoClassName};
+
+/**
+ * 系统生成Service类
+ * @author admin
+ * @date ${Date}
+ */
+public interface ${SimpleName}Service {
+
+    /**
+     * 新增
+     * @param ${LowerCaseSimpleName} 新增对象
+     * @return 新增对象的id
+     */
+    Long create(${SimpleName}Vo ${LowerCaseSimpleName});
+
+    /**
+     * 删除
+     * @param id 删除对象的id
+     */
+    void delete(Long id);
+
+    /**
+     * 修改
+     * @param ${LowerCaseSimpleName} 修改对象
+     */
+    void update(${SimpleName}Vo ${LowerCaseSimpleName});
+
+    /**
+     * 单个查询
+     * @param id 查询对象id
+     * @return 查询结果
+     */
+    ${SimpleName}Vo find(Long id);
+
+    /**
+     * 按条件查询
+     * @param ${LowerCaseSimpleName}So 查询条件
+     * @return 查询结果
+     */
+    PageList<${SimpleName}Vo> listPagination(${SimpleName}So ${LowerCaseSimpleName}So);
+
+${Business}
+
+}
+

@@ -1,0 +1,25 @@
+package ${PackageName};
+
+import com.best.capital.pay.dao.base.BaseDao;
+import ${DaoClassName};
+import ${ModelClassName};
+import ${SoClassName};
+import ${VoClassName};
+import com.best.capital.pay.test.unit.biz.dao.base.BaseDaoUnitTest;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ * 系统生成dao测试类
+ * @author admin
+ * @date ${Date}
+ */
+public class ${SimpleName}DaoTest extends BaseDaoUnitTest<${SimpleName}, ${SimpleName}Vo, ${SimpleName}So> {
+
+    @Autowired
+    private ${SimpleName}Dao ${LowerCaseSimpleName}Dao;
+
+    @Override
+    protected BaseDao<${SimpleName}> getDAO() {
+        return ${LowerCaseSimpleName}Dao;
+    }
+}

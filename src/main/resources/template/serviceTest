@@ -1,0 +1,52 @@
+package ${PackageName};
+
+import com.best.capital.pay.model.base.PageList;
+import ${ModelClassName};
+import ${SoClassName};
+import ${VoClassName};
+import ${CommonServicePackageName};
+import com.best.capital.pay.test.unit.base.BasePopulatorTest;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import static org.junit.Assert.*;
+
+/**
+ * 系统生成Service测试类
+ * @author admin
+ * @date ${Date}
+ */
+public class ${SimpleName}ServiceTest extends BasePopulatorTest<${SimpleName}, ${SimpleName}Vo, ${SimpleName}So> {
+
+    @Autowired
+    private ${SimpleName}Service ${LowerCaseSimpleName}Service;
+
+    private static final String KEY = "TEST";
+    
+    @Test
+    public void testCrud() {
+        ${SimpleName} bo = buildBo();
+        ${SimpleName}Vo ${LowerCaseSimpleName}Vo = dozer.convert(bo, ${SimpleName}Vo.class);
+        Long id = ${LowerCaseSimpleName}Service.create(${LowerCaseSimpleName}Vo);
+        assertNotNull(id);
+
+        ${SimpleName}Vo findResult = ${LowerCaseSimpleName}Service.find(id);
+        assertNotNull(findResult);
+
+        findResult.setCreator(KEY);
+        ${LowerCaseSimpleName}Service.update(findResult);
+        ${SimpleName}Vo updateResult = ${LowerCaseSimpleName}Service.find(id);
+        assertEquals(KEY, updateResult.getCreator());
+
+        ${SimpleName}So so = new ${SimpleName}So();
+        so.setCreator(KEY);
+        PageList<${SimpleName}Vo> pageList = ${LowerCaseSimpleName}Service.listPagination(so);
+        int count = pageList.getCount();
+        assertTrue(count > 0);
+
+        ${LowerCaseSimpleName}Service.delete(id);
+        PageList<${SimpleName}Vo> pageListAfterDelete = ${LowerCaseSimpleName}Service.listPagination(so);
+        assertTrue((count - pageListAfterDelete.getCount()) == 1);
+    }
+
+}

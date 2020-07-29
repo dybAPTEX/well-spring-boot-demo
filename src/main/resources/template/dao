@@ -1,0 +1,17 @@
+package ${PackageName};
+
+import com.best.capital.pay.dao.base.BaseDao;
+import ${ModelClassName};
+${AdditionDaoImport}
+
+/**
+ * 系统生成Dao
+ * @author admin
+ * @date 2017/11/14
+ */
+public interface ${SimpleName}Dao extends BaseDao<${SimpleName}> {
+
+${AdditionDao}
+${Business}
+
+}

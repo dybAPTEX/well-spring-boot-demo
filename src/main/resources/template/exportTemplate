@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template version="1.0" type="singleSheet" exportVersion="false">
+    <sheet name="${LowerCaseSimpleName}"  nameCN="${LowerCaseSimpleName}">
+        <meta>
+%{columnStr}
+        </meta>
+        <header>
+        </header>
+    </sheet>
+</template>

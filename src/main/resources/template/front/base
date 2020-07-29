@@ -1,0 +1,29 @@
+import React, { Component } from "react";
+import { BestForm } from "components";
+import { Input, DatePicker } from "antd";
+import moment from "moment";
+${baseImportAddition}
+
+class Base extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {
+        title,
+        disabled,
+        isNew,
+${const}
+    } = this.props;
+    return (
+      <div>
+        <BestForm title={title} ref={v => (this.baseInfo = v)}>
+${bestForm}
+        </BestForm>
+      </div>
+    );
+  }
+}
+
+export default Base;

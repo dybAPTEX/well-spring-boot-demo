@@ -1,0 +1,21 @@
+package ${PackageName};
+
+import com.best.capital.pay.model.base.AbstractVo;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import java.util.Date;
+
+/**
+ * 系统生成Vo
+ * @author admin
+ * @date ${Date}
+ */
+@EqualsAndHashCode(callSuper = true)
+@Data
+public class ${SimpleName}Vo extends AbstractVo {
+
+    private static final long serialVersionUID = 1L;
+
+%{columnStr}
+
+}

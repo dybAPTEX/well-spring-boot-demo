@@ -1,0 +1,218 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { deleteTab } from "actions/tabs";
+import { getList } from "actions/pageList";
+import { Loading } from "components";
+import { Button, message, Modal } from "antd";
+import { withRouter } from "react-router-dom";
+import api from "utils/api";
+import Base from "./Base";
+
+class ${SimpleName}Create extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { loading: true };
+  }
+
+  isNew = query => {
+    return !(query || this.props.match.params).id;
+  };
+
+  isEdit = query => {
+    return (query || this.props.match.params).isEdit;
+  };
+
+  componentWillReceiveProps(nextProps) {
+    const newPath = window.location.pathname.split("/");
+    const newId = newPath[3];
+    const newPageType = newPath[2];
+    const oriPageType = this.props.match.params.editType;
+    if (newId && newId !== this.oriId && newPageType === oriPageType) {
+      this.oriId = newId;
+      this.getVO({ id: newId });
+    }
+  }
+
+  componentDidMount() {
+    this.getVO(this.props.match.params);
+  }
+
+  getInitialState() {
+    return {
+      id: null,
+      lockVersion: null,
+      name: "",
+      remark: "",
+      menuItemIds: "",
+      loading: false,
+      locked: false
+    };
+  }
+
+  getVO(query) {
+    if (query && query.id) {
+      const url = "/rest/${LowerCaseSimpleName}/find";
+      this.setState({ loading: true });
+      api.get(url, { id: query.id }).then(result => {
+        if (result) {
+          if (result.success) {
+            this.setFormState(result.vo);
+            this.setState({ loading: false });
+          } else {
+            message.error(
+              (result.messages && result.messages[0]) || "返回数据为空"
+            );
+          }
+        } else {
+          message.error("请求未响应");
+        }
+      });
+    } else {
+      this.setFormState(this.getInitialState());
+    }
+  }
+
+  setFormState = model => {
+    this.setState(model);
+  };
+
+  validateNormalForm = () => {
+    const normalForm = this.normalForm.baseInfo.getForm();
+    let options;
+    normalForm.validateFields((err, values) => {
+      if (!err) {
+        options = values;
+      } else {
+        message.error(err[Object.keys(err)[0]].errors[0].message);
+      }
+    });
+    return options;
+  };
+
+  validateTabForm = options => {
+    return options;
+  };
+
+  handleSubmit = () => {
+    const { id, lockVersion } = this.state;
+    const { ${UnderlineSimpleName}, getList } = this.props;
+    const isNew = this.isNew();
+    const url = isNew ? "/rest/${LowerCaseSimpleName}/create" : "/rest/${LowerCaseSimpleName}/update";
+    const formOptions = this.validateNormalForm();
+    if (!formOptions) {
+      return false;
+    }
+    let options = this.validateTabForm(formOptions);
+    if (!isNew) {
+      Object.assign(options, { id, lockVersion });
+    }
+    this.setState({ submitDisable: true });
+    api.post(url, options).then(result => {
+      if (result) {
+        if (result.success) {
+          if (!isNew) {
+            Modal.success({ title: "修改成功！" });
+          } else {
+            Modal.success({ title: "新增成功！" });
+          }
+          this.closeTab();
+          getList(
+              "/rest/${LowerCaseSimpleName}/listPagination",
+              ${UnderlineSimpleName} && ${UnderlineSimpleName}.query,
+              "${UpperCaseUnderlineSimpleName}"
+          );
+        } else {
+          this.setState({ submitDisable: false });
+          message.error(
+            (result.messages && result.messages[0]) || "返回数据为空"
+          );
+        }
+      } else {
+        this.setState({ submitDisable: false });
+        message.error("请求未响应");
+      }
+    });
+  };
+
+  handleCancel = () => {
+    this.closeTab();
+  };
+
+  closeTab = () => {
+    const { tabs: { list }, deleteTab, history } = this.props;
+    const isNew = this.isNew();
+    const isEdit = this.isEdit();
+    const key = isNew
+      ? "${LowerCaseSimpleName}Create"
+      : isEdit === "true" ? "${LowerCaseSimpleName}Edit" : "${LowerCaseSimpleName}Preview";
+    const curIdex = list.findIndex(list => list.key === key);
+    const aheadIndex = list.findIndex(
+      list => list.key === list[curIdex] && list[curIdex].aheahKey
+    );
+    const nextActive = aheadIndex >= 0 ? list[aheadIndex] : list[curIdex - 1];
+    nextActive.active = true;
+    history.push(nextActive.path);
+    sessionStorage.setItem('title',nextActive.title);
+    deleteTab({ key });
+  };
+
+  render() {
+    const isNew = this.isNew();
+    const isEdit = this.isEdit();
+    const disabled = !isNew && isEdit === "false";
+    const title = !isNew ? (isEdit === "true" ? "编辑" : "查看") : "新增";
+    const {
+${const},
+        loading,
+        submitDisable
+    } = this.state;
+    if (loading) {
+      return <Loading position="absolute" spinning={true} />;
+    } else {
+      return (
+        <div className="">
+          <Base
+            ref={v => (this.normalForm = v)}
+            disabled={disabled}
+            title={title}
+            isNew={isNew}
+${baseProps}
+          />
+          <div className="submit-btns">
+            <Button
+              type="button"
+              style={{ marginRight: 10, marginTop: 20 }}
+              onClick={this.handleCancel}
+            >
+              {isNew || isEdit === "true" ? "取消" : "关闭"}
+            </Button>
+            {(isNew || isEdit === "true") && (
+              <Button
+                type="button"
+                htmlType="submit"
+                disabled={submitDisable}
+                onClick={this.handleSubmit}
+              >
+                提交
+           </Button>
+            )}
+          </div>
+        </div>
+      );
+    }
+  }
+}
+
+function mapStateToProps(state) {
+  const { tabs, auth:{ menu }, pageList:{ ${UnderlineSimpleName} } } = state;
+  return { tabs };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ deleteTab, getList }, dispatch);
+}
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(${SimpleName}Create)
+);

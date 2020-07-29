@@ -1,0 +1,135 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getList } from "actions/pageList";
+import { addTab } from "actions/tabs";
+import { modifyPage } from "actions/pages";
+import TableList from "./TableList";
+import { Input, Button, message, DatePicker } from "antd";
+import { SearchWrap } from "components";
+import { PageConstant, api } from "utils";
+${mainImportAddition}
+
+class ${SimpleName} extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedRowKeys: [],
+      tableData: null,
+      page: 1,
+      pageSize: 20,
+      count: null
+    };
+  }
+
+  componentDidMount() {
+    this.refresh();
+  }
+
+  goNewTab = () => {
+    const { addTab, tabs: { list }, modifyPage } = this.props;
+    const newTab = PageConstant.${moduleName}.${bizPackageName}.${LowerCaseSimpleName}Create;
+    const hasRender = list.find(l => l.key === newTab.key);
+    modifyPage({ path: newTab.path, key: newTab.key });
+    if (!hasRender && list.length < 8) {
+      addTab(newTab);
+    }
+  };
+
+  refresh = query => {
+    const { getList } = this.props;
+    const options = Object.assign({}, query, {
+      pageNumber: (query && query.page) || 1,
+      pageSize: (query && query.pageSize) || 20
+    });
+    this.setState({
+      page: (query && query.page) || 1,
+      pageSize: (query && query.pageSize) || 20,
+      selectedRowKeys: []
+    });
+    getList("/rest/${LowerCaseSimpleName}/listPagination", options, "${UpperCaseUnderlineSimpleName}");
+  };
+
+  modifySelectRows = selectedRowKeys => {
+    this.setState({ selectedRowKeys });
+  };
+
+  changePage = (page, pageSize) => {
+    const { pageList: { ${UnderlineSimpleName} } } = this.props;
+    let query = Object.assign({}, ${UnderlineSimpleName} && ${UnderlineSimpleName}.query, { page, pageSize });
+    this.setState({ selectedRowKeys: [] });
+    this.refresh(query);
+  };
+
+  dealLists = url => {
+    const { pageList: { ${UnderlineSimpleName} } } = this.props;
+    api.post(url, { idList: this.state.selectedRowKeys }).then(result => {
+      if (result) {
+        if (result.success) {
+          this.refresh(${UnderlineSimpleName} && ${UnderlineSimpleName}.query);
+          this.setState({ selectedRowKeys: [] });
+        } else {
+          message.error(
+            (result.messages && result.messages[0]) || "返回数据为空",
+            6
+          );
+        }
+      } else {
+        message.error("请求未响应", 3);
+      }
+    });
+  };
+
+  render() {
+    const { page, pageSize, selectedRowKeys } = this.state;
+    const { pageList: { ${UnderlineSimpleName} } } = this.props;
+    return (
+      <div className="">
+        <SearchWrap onSearch={this.refresh}>
+${SearchWrap}
+        </SearchWrap>
+        <div className="middle-btns">
+          <Button onClick={this.goNewTab} icon="plus">
+            新增
+          </Button>
+          <Button
+            icon="lock"
+            onClick={this.dealLists.bind(this, "/rest/${LowerCaseSimpleName}/frozen")}
+          >
+            冻结
+          </Button>
+          <Button
+            icon="unlock"
+            onClick={this.dealLists.bind(this, "/rest/${LowerCaseSimpleName}/active")}
+          >
+            激活
+          </Button>
+          <Button
+            icon="disconnect"
+            onClick={this.dealLists.bind(this, "/rest/${LowerCaseSimpleName}/inactive")}
+          >
+            废弃
+          </Button>
+        </div>
+        <TableList
+          tableData={${UnderlineSimpleName} && ${UnderlineSimpleName}.result}
+          changePage={this.changePage}
+          selectedRowKeys={selectedRowKeys}
+          modifySelectRows={this.modifySelectRows}
+          refresh={this.refresh}
+          page={page}
+          pageSize={pageSize}
+        />
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  const { tabs, pageList } = state;
+  return { tabs, pageList };
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ getList, addTab, modifyPage }, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(${SimpleName});

@@ -1,0 +1,15 @@
+package ${PackageName};
+
+import com.best.capital.pay.dao.base.Mapper;
+import ${ModelClassName};
+
+/**
+ * 系统生成Mapper类
+ * @author admin
+ * @date ${Date}
+ */
+public interface ${SimpleName}Mapper extends Mapper<${SimpleName}> {
+
+
+
+}

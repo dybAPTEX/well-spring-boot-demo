@@ -1,0 +1,12 @@
+package ${PackageName};
+
+/**
+ * 系统生成AdditionalService
+ * @author admin
+ * @date ${Date}
+ */
+public interface ${SimpleName}AdditionalService {
+
+${Business}
+
+}

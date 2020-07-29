@@ -1,6 +1,6 @@
 
 server:
-  port: 9090
+  port: 9901
   servlet:
     context-path: /demo/
 
@@ -12,7 +12,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: root
-    password: root
+    password: Love1303
 
 mybatis:
   mapper-locations: classpath:/mapper/*.xml

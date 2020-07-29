@@ -1,0 +1,95 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { withRouter } from "react-router-dom";
+import { addTab } from "actions/tabs";
+import { modifyPage } from "actions/pages";
+import { BestTable } from "components";
+import { PageConstant } from "utils";
+import moment from "moment";
+${tableListImportAddition}
+
+class TableList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  goNewTab = (id, edit) => {
+    const { addTab, tabs: { list }, modifyPage } = this.props;
+    let newTab = edit
+      ? PageConstant.${moduleName}.${bizPackageName}.${LowerCaseSimpleName}Edit
+        : PageConstant.${moduleName}.${bizPackageName}.${LowerCaseSimpleName}Preview;
+    newTab.path = "/${moduleName}/" + newTab.key + "/" + id + "/" + edit;
+    const hasRender = list.find(l => l.key === newTab.key);
+    modifyPage({ path: newTab.path, key: newTab.key });
+    if (!hasRender && list.length < 8) {
+      addTab(newTab);
+    }
+  };
+
+  renderColumns = () => {
+    return [
+      { dataIndex: "opt", title: "操作", width: 100, render: this.renderAction },
+${renderColumns}
+    ];
+  };
+
+  renderAction = (opt, obj) => {
+    return (
+      <div>
+        <a onClick={this.goNewTab.bind(this, obj.id, false)}>查看</a>{" "}
+        <a onClick={this.goNewTab.bind(this, obj.id, true)}>编辑</a>{" "}
+      </div>
+    );
+  };
+
+  onSelectChange = selectedRowKeys => {
+    const { modifySelectRows } = this.props;
+    modifySelectRows(selectedRowKeys);
+  };
+
+  render() {
+    const {
+      tableData,
+      count,
+      changePage,
+      page,
+      pageSize,
+      selectedRowKeys
+    } = this.props;
+    const rowSelection = {
+      selectedRowKeys,
+      onChange: this.onSelectChange
+    };
+    const loadData = tableData && tableData.pageList;
+    const loadSuccess = tableData && tableData.success;
+    return (
+      <div className="${LowerCaseSimpleName}-list">
+        <BestTable
+          rowSelection={rowSelection}
+          columns={this.renderColumns()}
+          dataSource={loadData && loadData.list}
+          pagetotal={loadData && loadData.count}
+          changePage={changePage}
+          page={page}
+          pageSize={pageSize}
+          loadError={tableData && !loadSuccess}
+        />
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  const { tabs } = state;
+  return { tabs };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addTab, modifyPage }, dispatch);
+}
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(TableList)
+);

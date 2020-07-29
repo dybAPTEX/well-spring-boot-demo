@@ -1,0 +1,26 @@
+package ${PackageName};
+
+import com.best.capital.pay.dao.base.Mapper;
+import com.best.capital.pay.dao.base.BaseNoHistoryDaoImpl;
+import ${DaoMapperClassName};
+import ${ModelClassName};
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+/**
+ * 系统生成Dao实现类
+ * @author admin
+ * @date 2017/11/17
+ */
+@Repository
+public class ${SimpleName}DaoImpl extends BaseNoHistoryDaoImpl<${SimpleName}> implements ${SimpleName}Dao {
+
+    @Autowired
+    private ${SimpleName}Mapper mapper;
+
+    @Override
+    protected Mapper<${SimpleName}> getMapper() {
+        return mapper;
+    }
+
+}
