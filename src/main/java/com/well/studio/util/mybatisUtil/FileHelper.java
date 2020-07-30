@@ -1,4 +1,4 @@
-package com.well.studio.util.util2;
+package com.well.studio.util.mybatisUtil;
 
 import java.io.File;
 import java.util.ArrayList;

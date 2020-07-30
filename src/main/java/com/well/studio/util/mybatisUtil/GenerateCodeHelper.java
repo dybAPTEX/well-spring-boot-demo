@@ -1,4 +1,4 @@
-package com.well.studio.util.util2;
+package com.well.studio.util.mybatisUtil;
 
 import com.well.studio.model.base.AbstractBo;
 import lombok.extern.slf4j.Slf4j;

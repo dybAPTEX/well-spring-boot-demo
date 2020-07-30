@@ -1,4 +1,4 @@
-package com.well.studio.util.util2;
+package com.well.studio.util.mybatisUtil;
 
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
 import org.apache.poi.hssf.usermodel.HSSFRichTextString;

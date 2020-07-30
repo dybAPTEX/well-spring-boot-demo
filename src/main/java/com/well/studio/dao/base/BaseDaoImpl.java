@@ -7,7 +7,7 @@ import com.well.studio.model.base.AbstractBo;
 import com.well.studio.so.base.AbstractSo;
 import com.well.studio.util.*;
 import com.well.studio.model.base.AbstractHistoryBo;
-import com.well.studio.util.util2.OperatorTypeEnum;
+import com.well.studio.util.mybatisUtil.OperatorTypeEnum;
 import com.well.studio.vo.base.AbstractVo;
 import com.well.studio.vo.base.OperatorVo;
 import org.apache.commons.collections.CollectionUtils;

@@ -1,4 +1,4 @@
-package com.well.studio.util.util2;
+package com.well.studio.util.mybatisUtil;
 
 import com.well.studio.util.CommonConstant;
 import org.apache.commons.lang.StringUtils;

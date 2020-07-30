@@ -1,4 +1,4 @@
-package com.well.studio.util.util2;
+package com.well.studio.util.mybatisUtil;
 
 public class PathHelper {
 
@@ -26,7 +26,7 @@ public class PathHelper {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        Class clazz = Class.forName("com.well.studio.util.util2.Sample");
+        Class clazz = Class.forName("com.well.studio.util.mybatisUtil.Sample");
         String packageName = clazz.getPackage().getName();
         String bizPackageName = packageName.substring(packageName.lastIndexOf(".") + 1);
         System.out.printf("");

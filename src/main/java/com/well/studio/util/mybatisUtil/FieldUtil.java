@@ -1,4 +1,4 @@
-package com.well.studio.util.util2;
+package com.well.studio.util.mybatisUtil;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
 package com.well.studio.model.base;
 
-import com.well.studio.util.util2.OperatorTypeEnum;
+import com.well.studio.util.mybatisUtil.OperatorTypeEnum;
 import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
