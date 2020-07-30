@@ -1,7 +1,11 @@
 package com.well.studio.mapper.base;
 
-import com.well.studio.mapper.base.JsonMapper;
-
+/**
+ * @program: well-spring-boot-demo
+ * @description: Json构建工厂
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 public class JsonMapperFactory {
     private static final JsonMapper JSON_MAPPER = new JsonMapper();
 

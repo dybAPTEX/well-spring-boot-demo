@@ -6,6 +6,12 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @program: well-spring-boot-demo
+ * @description: Bean映射封装
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 @Component
 public class DozerHelper {
     private Mapper mapper;

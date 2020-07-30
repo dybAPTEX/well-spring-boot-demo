@@ -9,9 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * dyb
- * weier工作室
- */
+ * @program: well-spring-boot-demo
+ * @description: 异常封装类
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class BizException  extends RuntimeException{

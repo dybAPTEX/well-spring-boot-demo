@@ -7,8 +7,11 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 基础搜索类
- */
+ * @program: well-spring-boot-demo
+ * @description: 基础搜索类
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 @Data
 public class AbstractSo implements Serializable {
     private static final long serialVersionUID = 4009650342175211289L;

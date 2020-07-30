@@ -7,7 +7,12 @@ import com.well.studio.vo.base.OperatorVo;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+/**
+ * @program: well-spring-boot-demo
+ * @description: 通用Dao
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 @Component
 public interface BaseDao<T extends AbstractBo>{
 

@@ -8,8 +8,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 抽象基础PO 提供创建更新及域信息
- */
+ * @program: well-spring-boot-demo
+ * @description: 基础pojo父类，可更具项目更改
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 @Data
 public class AbstractBo implements Serializable {
     /**

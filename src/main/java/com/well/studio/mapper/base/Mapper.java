@@ -7,8 +7,11 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * 基础DAO
- */
+ * @program: well-spring-boot-demo
+ * @description: 基础Mapper
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 @Component
 public interface Mapper<T> {
 

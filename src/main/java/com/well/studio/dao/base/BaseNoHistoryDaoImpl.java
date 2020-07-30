@@ -18,9 +18,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * dyb
- * weier工作室
- */
+ * @program: well-spring-boot-demo
+ * @description: BaseNoHistoryDaoImpl
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 public abstract class BaseNoHistoryDaoImpl<T extends AbstractBo> implements BaseDao<T> {
 
     /**

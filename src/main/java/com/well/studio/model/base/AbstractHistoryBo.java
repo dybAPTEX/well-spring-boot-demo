@@ -9,10 +9,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 抽象基础历史记录BO
- *
- * @author bl02780
- */
+ * @program: well-spring-boot-demo
+ * @description: 基础pojo操作记录父类，可更具项目更改
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 @Data
 public abstract class AbstractHistoryBo implements Serializable {
 

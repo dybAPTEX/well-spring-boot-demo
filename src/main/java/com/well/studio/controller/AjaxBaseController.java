@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.Serializable;
 import java.util.Collections;
-
 /**
- * dyb
- * weier工作室
- */
+ * @program: well-spring-boot-demo
+ * @description: 通用Controller类
+ * @author: daiyunbo
+ * @create: 2020-07-30 19:08
+ **/
 public class AjaxBaseController {
 
     protected static final String CREATE = "/create";
