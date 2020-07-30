@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author bl02780
- * @date 2017/10/25
  */
 public class SqlGenerator extends AbstractGenerator {
 

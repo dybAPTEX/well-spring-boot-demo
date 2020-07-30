@@ -24,8 +24,6 @@ import java.util.List;
  * 简单封装Jackson，实现JSON String<->Java Object的Mapper.
  * <p/>
  * 封装不同的输出风格, 使用不同的builder函数创建实例.
- *
- * @author calvin
  */
 public class JsonMapper {
     private static Logger logger = LoggerFactory.getLogger(JsonMapper.class);

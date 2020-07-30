@@ -6,7 +6,6 @@ import java.util.List;
 /**
  * List拆分帮助类
  *
- * @author bl02780
  */
 public class ListSplitUtil {
 

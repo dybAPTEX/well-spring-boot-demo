@@ -6,10 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bl02780
- * @date 2017/12/7
- */
 public class BaseGenerateCode {
 
     protected static List<Class> loadClassList(String str0) throws ClassNotFoundException {

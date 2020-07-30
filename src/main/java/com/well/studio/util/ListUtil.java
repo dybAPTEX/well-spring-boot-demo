@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 /**
  * List帮助类
  *
- * @author bl02780
- * @date 2017/11/3
  */
 public final class ListUtil {
 

@@ -8,9 +8,6 @@ import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
-/**
- * @author bl02780
- */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Sample extends AbstractBo {

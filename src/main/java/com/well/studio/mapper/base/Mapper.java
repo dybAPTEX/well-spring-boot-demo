@@ -8,8 +8,6 @@ import java.util.List;
 
 /**
  * 基础DAO
- *
- * @author bl02780
  */
 @Component
 public interface Mapper<T> {

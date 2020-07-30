@@ -1,8 +1,5 @@
 package com.well.studio.util.util2;
-/**
- * @author bl02780
- * @date 2017/11/14
- */
+
 public enum OperatorTypeEnum {
 
     /**
