@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template version="1.0" type="singleSheet" exportVersion="false">
+    <sheet name="user"  nameCN="user">
+        <meta>
+			<column property="uuid" dataType="string" excelTitleName="经纪人唯一标识" />
+			<column property="phone" dataType="string" excelTitleName="手机号" />
+			<column property="active" dataType="string" excelTitleName="是否正常使用状态，0：不，1：正常" />
+			<column property="createdAt" dataType="string" excelTitleName="创建时间" />
+			<column property="updatedAt" dataType="string" excelTitleName="更新时间" />
+			<column property="deletedAt" dataType="string" excelTitleName="删除时间" />
+
+        </meta>
+        <header>
+        </header>
+    </sheet>
+</template>

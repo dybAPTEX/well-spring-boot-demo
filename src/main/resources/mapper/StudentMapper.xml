@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.well.studio.mapper.StudentMapper">
+
+    <!-- resultMap begin -->
+    <resultMap type="com.well.studio.model.Student" id="StudentResultMap">
+        		<!-- 0 --><result property="id"  column="id" />
+		<!-- 1 --><result property="createdTime"  column="created_time" />
+		<!-- 2 --><result property="updatedTime"  column="updated_time" />
+		<!-- 3 --><result property="creatorId"  column="creator_id" />
+		<!-- 4 --><result property="creator"  column="creator" />
+		<!-- 5 --><result property="updaterId"  column="updater_id" />
+		<!-- 6 --><result property="updater"  column="updater" />
+		<!-- 7 --><result property="lockVersion"  column="lock_version" />
+		<!-- 8 --><result property="domainId"  column="domain_id" />
+		<!-- 9 --><result property="uuid"  column="uuid" />
+		<!-- 10 --><result property="phone"  column="phone" />
+		<!-- 11 --><result property="active"  column="active" />
+
+    </resultMap>
+
+    <resultMap type="com.well.studio.vo.StudentVo" id="StudentVoResultMap">
+        		<!-- 0 --><result property="id"  column="id" />
+		<!-- 1 --><result property="createdTime"  column="created_time" />
+		<!-- 2 --><result property="updatedTime"  column="updated_time" />
+		<!-- 3 --><result property="creatorId"  column="creator_id" />
+		<!-- 4 --><result property="creator"  column="creator" />
+		<!-- 5 --><result property="updaterId"  column="updater_id" />
+		<!-- 6 --><result property="updater"  column="updater" />
+		<!-- 7 --><result property="lockVersion"  column="lock_version" />
+		<!-- 8 --><result property="domainId"  column="domain_id" />
+		<!-- 9 --><result property="uuid"  column="uuid" />
+		<!-- 10 --><result property="phone"  column="phone" />
+		<!-- 11 --><result property="active"  column="active" />
+
+    </resultMap>
+    <!-- resultMap end -->
+
+    <!-- CRUD begin -->
+    <insert id="insert">
+        		<selectKey keyProperty="id" resultType="long" order="BEFORE">
+ 			select bp_student_seq.nextval from dual
+		</selectKey>
+		insert into bp_student(
+		<!-- 0 -->id,
+		<!-- 1 -->created_time,
+		<!-- 2 -->updated_time,
+		<!-- 3 -->creator_id,
+		<!-- 4 -->creator,
+		<!-- 5 -->updater_id,
+		<!-- 6 -->updater,
+		<!-- 7 -->lock_version,
+		<!-- 8 -->domain_id,
+		<!-- 9 -->uuid,
+		<!-- 10 -->phone,
+		<!-- 11 -->active
+		) 
+		values(
+		<!-- 0 -->#{id},
+		<!-- 1 -->#{createdTime},
+		<!-- 2 -->#{updatedTime},
+		<!-- 3 -->#{creatorId},
+		<!-- 4 -->#{creator},
+		<!-- 5 -->#{updaterId},
+		<!-- 6 -->#{updater},
+		<!-- 7 -->#{lockVersion},
+		<!-- 8 -->#{domainId},
+		<!-- 9 -->#{uuid},
+		<!-- 10 -->#{phone},
+		<!-- 11 -->#{active}
+		)
+
+    </insert>
+
+    <insert id="batchInsert">
+        insert into bp_student(
+		<!-- 0 -->id,
+		<!-- 1 -->created_time,
+		<!-- 2 -->updated_time,
+		<!-- 3 -->creator_id,
+		<!-- 4 -->creator,
+		<!-- 5 -->updater_id,
+		<!-- 6 -->updater,
+		<!-- 7 -->lock_version,
+		<!-- 8 -->domain_id,
+		<!-- 9 -->uuid,
+		<!-- 10 -->phone,
+		<!-- 11 -->active
+		) 
+		SELECT bp_student_seq.NEXTVAL,A.* FROM (
+		<foreach collection="list" item="item" index="index" separator="union all">
+			SELECT
+			<!-- 0 -->#{item.createdTime:TIMESTAMP},
+			<!-- 1 -->#{item.updatedTime:TIMESTAMP},
+			<!-- 2 -->#{item.creatorId:NUMERIC},
+			<!-- 3 -->#{item.creator:VARCHAR},
+			<!-- 4 -->#{item.updaterId:NUMERIC},
+			<!-- 5 -->#{item.updater:VARCHAR},
+			<!-- 6 -->#{item.lockVersion:NUMERIC},
+			<!-- 7 -->#{item.domainId:NUMERIC},
+			<!-- 8 -->#{item.uuid:VARCHAR},
+			<!-- 9 -->#{item.phone:VARCHAR},
+			<!-- 10 -->#{item.active:NUMERIC}
+			FROM DUAL
+		</foreach>
+		) A
+    </insert>
+
+    <update id="update">
+        	 update bp_student
+        <include refid="updateSetSql"/>
+        where id=#{id} and lock_version=#{lockVersion}
+    </update>
+
+    <sql id="updateSetSql">
+        <set>
+            			<if test="createdTime !=null ">
+			<!-- 0 -->created_time=#{createdTime},
+			</if>
+			<if test="updatedTime !=null ">
+			<!-- 1 -->updated_time=#{updatedTime},
+			</if>
+			<if test="creatorId !=null ">
+			<!-- 2 -->creator_id=#{creatorId},
+			</if>
+			<if test="creator!=null and creator!='' ">
+			<!-- 3 -->creator=#{creator},
+			</if>
+			<if test="updaterId !=null ">
+			<!-- 4 -->updater_id=#{updaterId},
+			</if>
+			<if test="updater!=null and updater!='' ">
+			<!-- 5 -->updater=#{updater},
+			</if>
+			<!-- 6 -->lock_version=#{lockVersion}+1,
+			<if test="domainId !=null ">
+			<!-- 7 -->domain_id=#{domainId},
+			</if>
+			<if test="uuid!=null and uuid!='' ">
+			<!-- 8 -->uuid=#{uuid},
+			</if>
+			<if test="phone!=null and phone!='' ">
+			<!-- 9 -->phone=#{phone},
+			</if>
+			<if test="active !=null ">
+			<!-- 10 -->active=#{active}
+			</if>
+
+        </set>
+    </sql>
+
+    <delete id="delete">
+        delete from bp_student where id = #{id}
+    </delete>
+
+    <delete id="deleteByIdList">
+        delete from bp_student t where t.id in
+        <foreach collection="list" index="dex" item="item" open="("
+                 close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="findBo" resultMap="StudentResultMap">
+        select * from bp_student where id
+        = #{id}
+    </select>
+
+    <select id="findVo" resultMap="StudentVoResultMap">
+        select * from bp_student where
+        id = #{id}
+    </select>
+
+    <select id="listBoBySo" resultMap="StudentResultMap">
+        select t.* from bp_student t
+        <include refid="soSqlFilter"/>
+        order by id desc
+    </select>
+
+    <select id="listIdBySo" resultType="long">
+        select t.id from bp_student t
+        <include refid="soSqlFilter"/>
+    </select>
+
+    <select id="listVoBySo" resultMap="StudentVoResultMap">
+        select t.* from bp_student t
+        <include refid="soSqlFilter"/>
+        order by id desc
+    </select>
+
+    <select id="countBySo" resultType="int">
+        select count(1) from bp_student t
+        <include refid="soSqlFilter"/>
+    </select>
+
+    <select id="listVoByIdList" resultMap="StudentVoResultMap">
+        select * from bp_student t where t.id in
+        <foreach collection="list" index="dex" item="item" open="("
+                 close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="listBoByIdList" resultMap="StudentResultMap">
+        select * from bp_student t where t.id in
+        <foreach collection="list" index="dex" item="item" open="("
+                 close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <sql id="soSqlFilter">
+        <where>
+            <include refid="soSqlFilterRef"/>
+            			<if test="id !=null ">
+				 and t.id = #{id}
+			</if>
+			<if test="creatorId !=null ">
+				 and t.creator_id = #{creatorId}
+			</if>
+			<if test="creator !=null and creator !='' ">
+				 and t.creator = #{creator}
+			</if>
+			<if test="updaterId !=null ">
+				 and t.updater_id = #{updaterId}
+			</if>
+			<if test="updater !=null and updater !='' ">
+				 and t.updater = #{updater}
+			</if>
+			<if test="domainId !=null ">
+				 and t.domain_id = #{domainId}
+			</if>
+			<if test="uuid !=null and uuid !='' ">
+				 and t.uuid = #{uuid}
+			</if>
+			<if test="phone !=null and phone !='' ">
+				 and t.phone = #{phone}
+			</if>
+			<if test="active !=null ">
+				 and t.active = #{active}
+			</if>
+			<if test="idList !=null and idList.size() > 0 ">
+				and t.id in
+				<foreach collection="idList" index="dex" item="item" open="("
+					close=")" separator=",">
+					#{item}
+				</foreach>
+			</if>
+
+        </where>
+    </sql>
+    <!-- CRUD end -->
+
+    <!-- business begin -->
+	<sql id="soSqlFilterRef">
+	</sql>
+	<!-- business end -->
+</mapper>
