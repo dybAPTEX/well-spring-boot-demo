@@ -2,7 +2,7 @@ package ${PackageName};
 
 import ${DaoClassName};
 import ${ServiceHelperClassName};
-import com.best.capital.pay.service.base.AbstractTransactionalService;
+import com.well.studio.service.AbstractTransactionalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

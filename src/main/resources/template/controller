@@ -1,7 +1,6 @@
 package ${PackageName};
 
-import com.best.capital.pay.controller.base.AjaxBaseController;
-import com.best.capital.pay.model.base.PackVo;
+import com.well.studio.vo.base.PackVo;
 import ${SoClassName};
 import ${VoClassName};
 import ${AdditionalServiceClassName};

@@ -92,7 +92,7 @@ public class BeanGenerator extends AbstractGenerator {
         BeanInfo replaceInfo = new BeanInfo();
         replaceInfo.setPackageName(PathHelper.getSoPackageName(clazz));
         replaceInfo.setSimpleName(clazz.getSimpleName() + "So");
-        replaceInfo.setExtendsClassPathName("com.well.studio.util.AbstractSo");
+        replaceInfo.setExtendsClassPathName("com.well.studio.so.base.AbstractSo");
         replaceInfo.setExtendsClass("AbstractSo");
         return replaceInfo;
     }
@@ -101,7 +101,7 @@ public class BeanGenerator extends AbstractGenerator {
         BeanInfo replaceInfo = new BeanInfo();
         replaceInfo.setPackageName(PathHelper.getSoPackageName(clazz));
         replaceInfo.setSimpleName(clazz.getSimpleName() + "HistorySo");
-        replaceInfo.setExtendsClassPathName("com.well.studio.util.util2.AbstractHistorySo");
+        replaceInfo.setExtendsClassPathName("com.well.studio.so.base.AbstractHistorySo");
         replaceInfo.setExtendsClass("AbstractHistorySo");
         return replaceInfo;
     }
@@ -110,7 +110,7 @@ public class BeanGenerator extends AbstractGenerator {
         BeanInfo replaceInfo = new BeanInfo();
         replaceInfo.setPackageName(PathHelper.getVoPackageName(clazz));
         replaceInfo.setSimpleName(clazz.getSimpleName() + "HistoryVo");
-        replaceInfo.setExtendsClassPathName("com.well.studio.util.util2.AbstractHistoryVo");
+        replaceInfo.setExtendsClassPathName("com.well.studio.vo.base.AbstractHistoryVo");
         replaceInfo.setExtendsClass("AbstractHistoryVo");
         return replaceInfo;
     }
@@ -119,7 +119,7 @@ public class BeanGenerator extends AbstractGenerator {
         BeanInfo replaceInfo = new BeanInfo();
         replaceInfo.setPackageName(PathHelper.getVoPackageName(clazz));
         replaceInfo.setSimpleName(clazz.getSimpleName() + "Vo");
-        replaceInfo.setExtendsClassPathName("com.well.studio.util.AbstractVo");
+        replaceInfo.setExtendsClassPathName("com.well.studio.vo.base.AbstractVo");
         replaceInfo.setExtendsClass("AbstractVo");
         return replaceInfo;
     }
@@ -128,7 +128,7 @@ public class BeanGenerator extends AbstractGenerator {
         BeanInfo replaceInfo = new BeanInfo();
         replaceInfo.setPackageName(PathHelper.getModelPackageName(clazz));
         replaceInfo.setSimpleName(clazz.getSimpleName() + "History");
-        replaceInfo.setExtendsClassPathName("com.well.studio.util.util2.AbstractHistoryBo");
+        replaceInfo.setExtendsClassPathName("com.well.studio.model.base.AbstractHistoryBo");
         replaceInfo.setExtendsClass("AbstractHistoryBo");
         return replaceInfo;
     }
@@ -137,7 +137,7 @@ public class BeanGenerator extends AbstractGenerator {
         BeanInfo modelInfo = new BeanInfo();
         modelInfo.setPackageName(PathHelper.getModelPackageName(clazz));
         modelInfo.setSimpleName(clazz.getSimpleName());
-        modelInfo.setExtendsClassPathName("com.well.studio.util.util2.AbstractHistoryBo");
+        modelInfo.setExtendsClassPathName("com.well.studio.model.base.AbstractHistoryBo");
         modelInfo.setExtendsClass("AbstractHistoryBo");
         return modelInfo;
     }
@@ -146,7 +146,7 @@ public class BeanGenerator extends AbstractGenerator {
         BeanInfo modelInfo = new BeanInfo();
         modelInfo.setPackageName(PathHelper.getModelPackageName(clazz));
         modelInfo.setSimpleName(clazz.getSimpleName());
-        modelInfo.setExtendsClassPathName("com.well.studio.util.AbstractBo");
+        modelInfo.setExtendsClassPathName("com.well.studio.model.base.AbstractBo");
         modelInfo.setExtendsClass("AbstractBo");
         return modelInfo;
     }

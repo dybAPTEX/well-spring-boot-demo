@@ -20,6 +20,7 @@ public class FileHelper {
         String voDirectory =
                 GenerateConfig.BASE_DIR + GenerateConfig.MODEL_WORK + PathHelper.getModelPackagePath(clazz) + "\\" + clazz
                         .getSimpleName() + ".java";
+        System.out.println(voDirectory);
         return new File(voDirectory);
     }
 
@@ -43,6 +44,7 @@ public class FileHelper {
     }
 
     public static File getSoFile(Class clazz) {
+        System.out.println(PathHelper.getSoPackagePath(clazz));
         String soDirectory = GenerateConfig.BASE_DIR + GenerateConfig.MODEL_WORK + PathHelper.getSoPackagePath(clazz) + "\\" + clazz
                 .getSimpleName() + "So.java";
         return new File(soDirectory);

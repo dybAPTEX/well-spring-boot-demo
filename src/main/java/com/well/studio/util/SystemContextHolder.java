@@ -4,8 +4,9 @@ package com.well.studio.util;
 import com.alibaba.ttl.TransmittableThreadLocal;
 
 import com.well.studio.enums.LoginTypeEnum;
-import com.well.studio.vo.OperatorVo;
-import lombok.extern.slf4j.Slf4j;
+import com.well.studio.vo.base.MobileOperatorVo;
+import com.well.studio.vo.base.OperatorVo;
+import com.well.studio.vo.base.PyramidUserVo;
 import org.apache.commons.lang.StringUtils;
 
 public class SystemContextHolder {

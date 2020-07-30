@@ -4,14 +4,11 @@ import ${DaoClassName};
 import ${ModelClassName};
 import ${SoClassName};
 import ${VoClassName};
-import com.best.capital.pay.model.base.PageList;
-import com.best.capital.pay.service.base.AbstractTransactionalService;
+import com.well.studio.util.PageList;
+import com.well.studio.service.AbstractTransactionalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.best.capital.pay.model.tool.check.CheckEmptyHelper;
 import java.util.List;
-${AdditionServiceImplImport}
-
 /**
  * 系统生成Service实现类
  * @author admin

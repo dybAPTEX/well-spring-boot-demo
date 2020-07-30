@@ -33,7 +33,7 @@ public class GenerateConfig {
     /**
      * 工程名【运力相关结构项目直接修改工程名即可】
      */
-    public static final String PROJECT_NAME = "\\src\\main\\java\\";
+    public static final String PROJECT_NAME = "src\\main\\";
 
     public static final String BASE_DIR = System.getProperty("user.dir") + "\\";
 
@@ -42,19 +42,19 @@ public class GenerateConfig {
      */
     public static final String FRONT_DIR = System.getProperty("user.dir") + "_temp\\";
 
-    public static final String MAPPER_WORK = PROJECT_NAME ;
+    public static final String MAPPER_WORK = PROJECT_NAME +"resources\\mapper\\";
 
-    public static final String MODEL_WORK = PROJECT_NAME ;
+    public static final String MODEL_WORK = PROJECT_NAME +"java\\";
 
-    public static final String DAO_WORK = PROJECT_NAME ;
+    public static final String DAO_WORK = PROJECT_NAME +"java\\";
 
-    public static final String TEST_WORK = PROJECT_NAME ;
+    public static final String TEST_WORK = PROJECT_NAME +"java\\";
 
-    public static final String SERVICE_WORK = PROJECT_NAME ;
+    public static final String SERVICE_WORK = PROJECT_NAME +"java\\";
 
-    public static final String CONTROLLER_WORK = PROJECT_NAME ;
+    public static final String CONTROLLER_WORK = PROJECT_NAME +"java\\";
 
-    public static final String XML_WORK = PROJECT_NAME ;
+    public static final String XML_WORK = PROJECT_NAME +"java\\excell\\";
 
     public static final String EXCEL_WORK = PROJECT_NAME;
 

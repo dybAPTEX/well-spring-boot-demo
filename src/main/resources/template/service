@@ -1,6 +1,6 @@
 package ${PackageName};
 
-import com.best.capital.pay.model.base.PageList;
+import com.well.studio.util.PageList;
 import ${SoClassName};
 import ${VoClassName};
 

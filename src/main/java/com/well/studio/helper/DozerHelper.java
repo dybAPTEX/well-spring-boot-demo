@@ -1,8 +1,12 @@
-package com.well.studio.util;
-import org.dozer.*;
+package com.well.studio.helper;
+
+import org.dozer.Mapper;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class DozerHelper {
     private Mapper mapper;
 

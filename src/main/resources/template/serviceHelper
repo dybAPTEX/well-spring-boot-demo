@@ -1,7 +1,7 @@
 package ${PackageName};
 
 import ${DaoClassName};
-import com.best.capital.pay.service.base.AbstractNoTransactionalService;
+import com.well.studio.service.AbstractNoTransactionalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

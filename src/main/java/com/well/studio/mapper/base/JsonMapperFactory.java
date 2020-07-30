@@ -1,4 +1,6 @@
-package com.well.studio.util;
+package com.well.studio.mapper.base;
+
+import com.well.studio.mapper.base.JsonMapper;
 
 public class JsonMapperFactory {
     private static final JsonMapper JSON_MAPPER = new JsonMapper();

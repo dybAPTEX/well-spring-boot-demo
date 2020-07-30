@@ -1,6 +1,6 @@
 package com.well.studio.util;
 
-import com.well.studio.vo.OperatorVo;
+import com.well.studio.vo.base.OperatorVo;
 import lombok.Data;
 
 @Data

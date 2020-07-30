@@ -1,9 +1,8 @@
-package com.well.studio.util;
+package com.well.studio.vo.base;
 
 import com.well.studio.enums.ContractStatusEnum;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 import java.util.List;
@@ -86,8 +85,5 @@ public class MobileOperatorVo {
 
     private String clientName;
 
-//    private MobileUserRoleEnum currentUserRole;
-//
-//    private ClientTypeEnum clientType;
 
 }

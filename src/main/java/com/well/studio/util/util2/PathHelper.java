@@ -44,7 +44,7 @@ public class PathHelper {
     public static String getDaoMapperPackageName(Class clazz) {
         String modelName = clazz.getName();
         modelName = replaceBoInPackageName(modelName, "mapper");
-        modelName = modelName.replace(".model.", ".dao.");
+        modelName = modelName.replace(".model.", ".mapper.");
         int index = modelName.lastIndexOf(".");
         return modelName.substring(0, index);
     }
@@ -68,12 +68,14 @@ public class PathHelper {
     }
 
     public static String getVoPackagePath(Class clazz) {
+        System.out.println("!!!"+getVoPackageName(clazz));
         return getVoPackageName(clazz).replace(".", "\\");
     }
 
     public static String getVoPackageName(Class clazz) {
         String modelName = clazz.getName();
-        modelName = modelName.replace(".bo.", ".vo.");
+        System.out.println("sada"+modelName);
+        modelName = modelName.replace(".model.", ".vo.");
         int index = modelName.lastIndexOf(".");
         return modelName.substring(0, index);
     }
@@ -92,7 +94,7 @@ public class PathHelper {
 
     public static String getSoPackageName(Class clazz) {
         String modelName = clazz.getName();
-        modelName = modelName.replace(".bo.", ".so.");
+        modelName = modelName.replace(".model.", ".so.");
         int index = modelName.lastIndexOf(".");
         return modelName.substring(0, index);
     }
@@ -200,7 +202,7 @@ public class PathHelper {
     public static String getDaoMapperTestPackageName(Class clazz) {
         String modelName = clazz.getName();
         modelName = removeBoInPackageName(modelName);
-        modelName = modelName.replace(".model.", ".test.unit.biz.dao.");
+        modelName = modelName.replace(".model.", ".test.dao.");
         int index = modelName.lastIndexOf(".");
         return modelName.substring(0, index);
     }
@@ -212,7 +214,7 @@ public class PathHelper {
     public static String getServiceTestPackageName(Class clazz) {
         String modelName = clazz.getName();
         modelName = removeBoInPackageName(modelName);
-        modelName = modelName.replace(".model.", ".test.unit.biz.service.");
+        modelName = modelName.replace(".model.", ".test.service.");
         int index = modelName.lastIndexOf(".");
         return modelName.substring(0, index);
     }

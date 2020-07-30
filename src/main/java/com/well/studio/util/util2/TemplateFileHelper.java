@@ -1,6 +1,7 @@
 package com.well.studio.util.util2;
 
 import java.io.File;
+import java.net.URL;
 
 public class TemplateFileHelper {
 
@@ -89,7 +90,10 @@ public class TemplateFileHelper {
     }
 
     public static File getTempFile(BaseGenerateCode gen, String classPath) {
-        return new File(gen.getClass().getResource(classPath).getPath());
+        Class c = gen.getClass();
+        URL url=c.getResource(classPath);
+        String fi=url.getPath();
+        return new File(fi);
     }
 
     public static File getPYModelTempFile(BaseGenerateCode gen) {

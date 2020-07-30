@@ -1,9 +1,9 @@
 package ${PackageName};
 
-import com.best.capital.pay.dao.base.Mapper;
-import com.best.capital.pay.dao.base.BaseNoHistoryDaoImpl;
-import ${DaoMapperClassName};
+import com.well.studio.dao.base.BaseNoHistoryDaoImpl;
+import com.well.studio.mapper.base.Mapper;
 import ${ModelClassName};
+import ${DaoMapperClassName};
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.well.studio.util;
+package com.well.studio.mapper.base;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

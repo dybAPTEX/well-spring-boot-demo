@@ -1,5 +1,6 @@
-package com.well.studio.util.util2;
+package com.well.studio.model.base;
 
+import com.well.studio.util.util2.OperatorTypeEnum;
 import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -7,8 +8,13 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 抽象基础历史记录BO
+ *
+ * @author bl02780
+ */
 @Data
-public abstract class AbstractHistoryVo implements Serializable {
+public abstract class AbstractHistoryBo implements Serializable {
 
     private static final long serialVersionUID = 1993072186482038252L;
 

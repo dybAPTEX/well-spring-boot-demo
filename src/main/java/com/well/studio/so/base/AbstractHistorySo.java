@@ -1,6 +1,6 @@
-package com.well.studio.util.util2;
+package com.well.studio.so.base;
 
-import com.well.studio.util.AbstractSo;
+import com.well.studio.util.util2.OperatorTypeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.builder.ToStringBuilder;

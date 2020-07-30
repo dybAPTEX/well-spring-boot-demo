@@ -1,4 +1,4 @@
-package com.well.studio.util;
+package com.well.studio.so.base;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

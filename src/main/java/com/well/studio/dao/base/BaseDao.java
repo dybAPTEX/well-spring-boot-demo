@@ -1,10 +1,15 @@
-package com.well.studio.util;
+package com.well.studio.dao.base;
 
-import com.well.studio.vo.OperatorVo;
+import com.well.studio.model.base.AbstractBo;
+import com.well.studio.so.base.AbstractSo;
+import com.well.studio.vo.base.AbstractVo;
+import com.well.studio.vo.base.OperatorVo;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-public interface BaseDao <T extends AbstractBo>{
+@Component
+public interface BaseDao<T extends AbstractBo>{
 
     /**
      * 批量插入 根据<code>List<Long></code>插入 <code>com.best.capital.pay.model.associate.bo.AbstractBo</code>的继承对象

@@ -1,4 +1,6 @@
-package com.well.studio.util;
+package com.well.studio.vo.base;
+
+import com.well.studio.util.PageList;
 
 import java.io.Serializable;
 import java.util.ArrayList;

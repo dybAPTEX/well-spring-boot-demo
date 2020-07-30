@@ -1,9 +1,8 @@
-package com.well.studio.vo;
+package com.well.studio.vo.base;
 
 import com.well.studio.enums.CommonActiveStatusEnum;
 import com.well.studio.enums.LoginTypeEnum;
 import com.well.studio.enums.OperatorRoleTypeEnum;
-import com.well.studio.util.AbstractVo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

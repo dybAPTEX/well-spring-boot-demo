@@ -1,4 +1,4 @@
-package com.well.studio.util;
+package com.well.studio.model.base;
 
 import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;

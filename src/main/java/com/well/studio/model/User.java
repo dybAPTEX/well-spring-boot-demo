@@ -1,6 +1,6 @@
 package com.well.studio.model;
 
-import com.well.studio.util.AbstractBo;
+import com.well.studio.model.base.AbstractBo;
 import lombok.Data;
 
 import java.util.Date;

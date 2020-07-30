@@ -1,4 +1,4 @@
-package com.well.studio.util;
+package com.well.studio.vo.base;
 
 import lombok.Data;
 

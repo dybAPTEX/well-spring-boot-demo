@@ -1,15 +1,10 @@
 package ${PackageName};
 
 import ${DaoClassName};
-import ${SoClassName};
-import ${VoClassName};
-import com.best.capital.pay.service.base.export.BaseExport;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 系统生成导出类
@@ -17,7 +12,7 @@ import java.util.Map;
  * @date ${Date}
  */
 @Service
-public class Export${SimpleName} extends BaseExport<${SimpleName}So> {
+public class Export${SimpleName} {
 
     private static final String TEMPLATE = "${TableName}.xml";
     private static final String STORE_NAME = "${TableName}";
@@ -25,15 +20,6 @@ public class Export${SimpleName} extends BaseExport<${SimpleName}So> {
     @Autowired
     private ${SimpleName}Dao ${LowerCaseSimpleName}Dao;
 
-    @Override
-    public String export(${SimpleName}So so) {
-        List<${SimpleName}Vo> ${LowerCaseSimpleName}List = ${LowerCaseSimpleName}Dao.listVoBySo(so);
-
-        Map<String, List<?>> dataMap = new HashMap<>();
-        dataMap.put("${LowerCaseSimpleName}", ${LowerCaseSimpleName}List);
-
-        return super.exportToExcel(dataMap, TEMPLATE, STORE_NAME);
-    }
 
 
 }

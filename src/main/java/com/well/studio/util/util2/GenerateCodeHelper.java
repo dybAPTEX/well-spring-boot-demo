@@ -1,6 +1,6 @@
 package com.well.studio.util.util2;
 
-import com.well.studio.util.AbstractBo;
+import com.well.studio.model.base.AbstractBo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -74,7 +74,7 @@ import java.util.Map;
         List<Field> fieldList = FieldUtil.getParentAndSelfFields(clazz);
         Class historyBaseClazz = null;
         try {
-            historyBaseClazz = Class.forName("com.well.studio.util.util2.AbstractHistoryBo");
+            historyBaseClazz = Class.forName("com.well.studio.model.base.AbstractHistoryBo");
         } catch (ClassNotFoundException e) {
             log.info("--AbstractHistoryBo不存在");
         }

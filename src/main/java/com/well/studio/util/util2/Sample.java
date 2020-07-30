@@ -1,7 +1,7 @@
 package com.well.studio.util.util2;
 
 
-import com.well.studio.util.AbstractBo;
+import com.well.studio.model.base.AbstractBo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

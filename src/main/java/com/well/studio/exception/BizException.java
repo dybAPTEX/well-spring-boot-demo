@@ -8,6 +8,10 @@ import lombok.EqualsAndHashCode;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * dyb
+ * weier工作室
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class BizException  extends RuntimeException{

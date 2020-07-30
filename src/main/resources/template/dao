@@ -1,6 +1,5 @@
 package ${PackageName};
-
-import com.best.capital.pay.dao.base.BaseDao;
+import com.well.studio.dao.base.BaseDao;
 import ${ModelClassName};
 ${AdditionDaoImport}
 
