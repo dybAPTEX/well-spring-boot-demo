@@ -3,7 +3,6 @@ package com.well.studio.util.mybatisUtil;
 import com.well.studio.util.CommonConstant;
 
 import java.util.List;
-import com.site.lookup.util.StringUtils;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -39,9 +38,13 @@ public class ExcelGenerator extends AbstractGenerator {
     private String[] getHeaderNames(Class clazz) {
         List<InnerField> innerFieldList = GenerateCodeHelper.geneInnerFieldWithComment(clazz);
         List<String> commentList = innerFieldList.stream().filter(
-                item -> (StringUtils.isNotEmpty(item.getComment()) && !item.getDeclaringClass().equals(BASE_MODEL_NAME)))
+                item -> (ExcelGenerator.isNotEmpty(item.getComment()) && !item.getDeclaringClass().equals(BASE_MODEL_NAME)))
                 .map(InnerField::getComment).collect(Collectors.toList());
         return commentList.toArray(new String[commentList.size()]);
+    }
+
+    public static boolean isNotEmpty(String str) {
+        return str != null && str.length() > 0;
     }
 
 }

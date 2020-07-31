@@ -1,10 +1,6 @@
 package com.well.studio.interceptor;
 
-import com.dianping.cat.Cat;
-import com.dianping.cat.message.Message;
-import com.dianping.cat.message.Transaction;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -16,7 +12,6 @@ import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.springframework.stereotype.Component;
-
 import java.text.DateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -52,8 +47,6 @@ public class MybatisInterceptor implements Interceptor {
         Configuration configuration = mappedStatement.getConfiguration();
         String sql = showSql(configuration, boundSql);
         System.out.println("SQL:"+sql);
-        Transaction t = Cat.newTransaction("SQL", classMethod);
-        Cat.logEvent("SQL.Statement", sql.substring(0, sql.indexOf(" ")), Message.SUCCESS, sql);
         Object returnObj = null;
         try {
             /**
@@ -63,14 +56,14 @@ public class MybatisInterceptor implements Interceptor {
              * }
              */
             returnObj = invocation.proceed();
-            t.setStatus(Message.SUCCESS);
         } catch (Exception e) {
-            if (isLogError) {
-                Cat.logError(e);
-            }
-            throw e;
+            /**
+             * 日志
+             */
         } finally {
-            t.complete();
+            /**
+             * 后置处理
+             */
         }
         return returnObj;
 
