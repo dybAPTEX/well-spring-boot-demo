@@ -6,6 +6,7 @@ import com.well.studio.vo.StudentVo;
 import com.well.studio.service.additional.StudentAdditionalService;
 import com.well.studio.service.common.StudentService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author admin
  * @date 2020/07/30
  */
+@Api(tags = "用户管理相关接口")
 @RestController
 @RequestMapping(StudentController.VIEW_PREFIX)
 public class StudentController extends AjaxBaseController {

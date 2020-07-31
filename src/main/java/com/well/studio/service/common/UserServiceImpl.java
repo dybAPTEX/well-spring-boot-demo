@@ -2,17 +2,17 @@ package com.well.studio.service.common;
 
 import com.well.studio.dao.UserDao;
 import com.well.studio.model.User;
-import com.well.studio.service.AbstractTransactionalService;
 import com.well.studio.so.UserSo;
 import com.well.studio.vo.UserVo;
 import com.well.studio.util.PageList;
+import com.well.studio.service.AbstractTransactionalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 /**
  * 系统生成Service实现类
  * @author admin
- * @date 2020/07/30
+ * @date 2020/07/31
  */
 @Service
 public class UserServiceImpl extends AbstractTransactionalService implements UserService {

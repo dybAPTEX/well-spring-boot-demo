@@ -1,6 +1,8 @@
 package com.well.studio.so;
 
 import com.well.studio.so.base.AbstractSo;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data

@@ -1,11 +1,11 @@
 package com.well.studio.controller;
 
+import com.well.studio.vo.base.PackVo;
 import com.well.studio.so.UserSo;
 import com.well.studio.vo.UserVo;
 import com.well.studio.service.additional.UserAdditionalService;
 import com.well.studio.service.common.UserService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.well.studio.vo.base.PackVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 系统生成Controller
  * @author admin
- * @date 2020/07/30
+ * @date 2020/07/31
  */
 @RestController
 @RequestMapping(UserController.VIEW_PREFIX)
